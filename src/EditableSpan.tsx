@@ -1,4 +1,5 @@
 import React, {ChangeEvent, useState} from "react";
+import {TextField} from '@mui/material';
 
 type EditableSpanPropsType= {
     title: string
@@ -19,7 +20,7 @@ setIsEditMode(true)
     }
     return (
         isEditMode
-            ? <input
+            ? <TextField variant={'standard'}
             value={title}
             autoFocus
             onBlur={ofEditMode}

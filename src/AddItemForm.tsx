@@ -1,5 +1,6 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from "react";
-import {Button, TextField} from '@mui/material';
+import {Button, IconButton, TextField} from '@mui/material';
+import {AddTask} from '@mui/icons-material';
 
 type AddIemFormPropsType = {
     addItem: (title: string) => void
@@ -35,7 +36,10 @@ export const AddItemForm = (props: AddIemFormPropsType) => {
                 onKeyDown={onEnterDownAddItem}
                 className={error ? 'error' : ''}
             />
-            <Button onClick={addItem} variant={'contained'} color={'primary'} size={'small'}>+</Button>
+            <IconButton  onClick={addItem} size={'large'}>
+                <AddTask color={'success'}/>
+            </IconButton>
+                {/*<Button onClick={addItem} variant={'contained'} color={'warning'} size={'small'}>+</Button>*/}
             {/*{error && <div className={'error-message'}>Title is required</div>}*/}
             {errorMessage}
         </div>

@@ -1,8 +1,9 @@
 import React, {useState, KeyboardEvent, ChangeEvent} from "react";
 import {FilterValuesType} from "./App";
 import {EditableSpan} from "./EditableSpan";
-import {Button, IconButton, TextField} from '@mui/material';
-import {Delete} from '@mui/icons-material';
+import {Button, Checkbox, IconButton, TextField} from '@mui/material';
+import {AddTask, Delete} from '@mui/icons-material';
+import {grey} from '@mui/material/colors';
 
 
 type TypeProps = {
@@ -55,14 +56,14 @@ export function Todolist(props: TypeProps) {
             props.changeTaskTitle(task.id, title, props.todolistId)
 
         return (
-            <li key={task.id} className={task.isDone ? 'is-done' : 'is-notcompleted'}>
-                <input type={"checkbox"} defaultChecked={task.isDone} onChange={changeTaskStatus}/>
+            <div key={task.id} className={task.isDone ? 'is-done' : 'is-notcompleted'}>
+                <Checkbox color={'warning'} defaultChecked={task.isDone} onChange={changeTaskStatus}/>
                 {/*<span>{task.title}</span>*/}
                 <EditableSpan title={task.title} changeTitle={changeTaskTitle}/>
                 <IconButton onClick={removeTask} size={'small'}>
                     <Delete/>
                 </IconButton>
-            </li>
+            </div>
         )
     })
 
@@ -85,17 +86,19 @@ export function Todolist(props: TypeProps) {
                            error={!!error}
                            helperText={error}
                 />
-                <Button onClick={addTask} variant={'contained'} color={'secondary'} size={'small'}>+</Button>
+                <IconButton  onClick={addTask} size={'large'}>
+                <AddTask color={'success'}/>
+                </IconButton>
                 {/*{error && <div className={'error-message'}>Title is required </div>}*/}
             </div>
-            <ul>
+            <div>
                 {tasksList}
                 {/*<li><input type="checkbox" checked={props.tasks[0].isDone}/> <span>{props.tasks[0].title}</span></li>*/}
                 {/*<li><input type="checkbox" checked={props.tasks[1].isDone}/> <span>{props.tasks[1].title}</span></li>*/}
                 {/*<li><input type="checkbox" checked={props.tasks[2].isDone}/> <span>{props.tasks[2].title}</span></li>*/}
-            </ul>
+            </div>
             <div>
-                <Button variant={props.filter === 'all' ? 'contained' : 'text'} onClick={handlerCreator("all")}>All
+                <Button color={'inherit'} variant={props.filter === 'all' ? 'contained' : 'text'} onClick={handlerCreator("all")}>All
                 </Button>
                 <Button color={'primary'} variant={props.filter === 'active' ? 'contained' : 'text'}
                         onClick={handlerCreator("active")}>Active
