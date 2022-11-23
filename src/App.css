@@ -1,0 +1,44 @@
+.App {
+ padding: 2%;
+ display: flex;
+ margin: 0px 0.5%;
+}
+.error {
+ border: red 1px solid;
+}
+
+.error-message {
+ color: red;
+ font-weight: bold;
+}
+.active-filter {
+ background-color: darkred;
+ color: white;
+}
+.is-done {
+ color: limegreen;
+ font-weight: bold;
+ text-decoration: line-through;
+ opacity: 0.7;
+}
+
+.is-notcompleted {
+ color: deeppink;
+ font-weight: bold;
+}
+button  {
+ margin: 0px 0px 0px 5px;
+ border-radius: 3px;
+ background-color: gold;
+}
+
+.buttons {
+display: flex;
+ margin: 10px;
+justify-content: space-around;
+}
+
+.not-active {
+ background-color: dodgerblue;
+ color: white;
+}
